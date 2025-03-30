@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Театр незламного Харкова - 100 років Харківському театру опери та балету</title>
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #c62828;
+            --accent-color: #ffab00;
+            --light-color: #f5f5f5;
+            --dark-color: #212121;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/000.-Teatr-Berezil-825x460.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2; 
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #ffd740;
+            transform: translateY(-3px);
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto;
+        }
+        
+        .history-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .history-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .history-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .history-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .performances {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .performance-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .performance-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .performance-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .performance-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .performance-card:hover .performance-image img {
+            transform: scale(1.1);
+        }
+        
+        .performance-info {
+            padding: 20px;
+        }
+        
+        .performance-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .performance-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .member-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--accent-color);
+        }
+        
+        .member-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .member-position {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="" class="logo">
+        <h1>Театр незламного Харкова</h1>
+        <p class="subtitle">До 100-річчя Харківського національного академічного театру опери та балету імені М.В. Лисенка</p>
+        <a href="#history" class="btn">Дізнатися більше</a>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Театр незламного Харкова</div>
+            <ul class="nav-links">
+                <li><a href="#history">Історія</a></li>
+                <li><a href="#performances">Вистави</a></li>
+                <li><a href="#team">Трупа</a></li>
+                <li><a href="#events">Події</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="history">
+            <h2>Історія театру</h2>
+            <div class="history-content">
+                <div class="history-text">
+                    <p>Харківський національний академічний театр опери та балету імені М.В. Лисенка - одна з найвизначніших культурних інституцій України, яка вже століття служить храмом мистецтва та творчості.</p>
+                    <p>Театр був заснований у 1925 році, коли Харків був столицею Української Радянської Соціалістичної Республіки. Від самого початку він став центром музичного життя не лише міста, а й усієї України.</p>
+                    <p>У 1944 році театру було присвоєно ім'я видатного українського композитора Миколи Лисенка, чия творчість стала основою національної музичної культури.</p>
+                    <p>Протягом своєї історії театр пережив війни, революції, зміни політичних режимів, але ніколи не припиняв свою діяльність, за що й отримав неофіційну назву "Театр незламного Харкова".</p>
+                </div>
+                <div class="history-image">
+                    <img src="images/Старое_здание_Харьковского_оперного_театра.jpg" alt="Старе фото театру">
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1925</div>
+                        <p>Відкриття Харківського державного театру опери та балету. Першою виставою стала опера "Сорочинський ярмарок" М. Лисенка.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1931</div>
+                        <p>Театр отримав нову будівлю в стилі конструктивізму, яка стала архітектурною візитівкою Харкова.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1944</div>
+                        <p>Театру присвоєно ім'я Миколи Лисенка. Після війни колектив активно відновлює репертуар.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1960-1970</div>
+                        <p>Золота ера театру. Вистави отримують міжнародне визнання, трупа гастролює Європою.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1991</div>
+                        <p>Після проголошення незалежності України театр отримує статус національного.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2014-2022</div>
+                        <p>Театр продовжує працювати попри складні політичні обставини, стаючи символом незламності української культури.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <p>Театр святкує 100-річний ювілей, затверджуючи свій статус одного з провідних музичних театрів Європи.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="performances">
+            <h2>Ювілейні вистави</h2>
+            <div class="performances">
+                <div class="performance-card">
+                    <div class="performance-image">
+                        <img src="images/01000000-0aff-0242-df86-08dc7a7216d6_w1071_r0_s_d3.jpg" alt="Тарас Бульба">
+                    </div>
+                    <div class="performance-info">
+                        <h3 class="performance-title">Тарас Бульба</h3>
+                        <p class="performance-date">15 травня 2025</p>
+                        <p>Опера М. Лисенка за однойменною повістю М. Гоголя. Спеціальна ювілейна версія.</p>
+                    </div>
+                </div>
+                
+                <div class="performance-card">
+                    <div class="performance-image">
+                        <img src="images/lisova-pisnya-03.jpg" alt="Лісова пісня">
+                    </div>
+                    <div class="performance-info">
+                        <h3 class="performance-title">Лісова пісня</h3>
+                        <p class="performance-date">22 червня 2025</p>
+                        <p>Балет на музику М. Скорульського за драмою-феєрією Лесі Українки.</p>
+                    </div>
+                </div>
+                
+                <div class="performance-card">
+                    <div class="performance-image">
+                        <img src="images/_dsc5594.jpg" alt="Запорожець за Дунаєм">
+                    </div>
+                    <div class="performance-info">
+                        <h3 class="performance-title">Запорожець за Дунаєм</h3>
+                        <p class="performance-date">10 вересня 2025</p>
+                        <p>Класична опера С. Гулака-Артемовського у сучасній інтерпретації.</p>
+                    </div>
+                </div>
+                
+                <div class="performance-card">
+                    <div class="performance-image">
+                        <img src="images/ASH_2648.jpg.crdownload" alt="Кармен">
+                    </div>
+                    <div class="performance-info">
+                        <h3 class="performance-title">Кармен</h3>
+                        <p class="performance-date">5 листопада 2025</p>
+                        <p>Всесвітньо відома опера Ж. Бізе з українським акцентом.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team">
+            <h2>Наша трупа</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="images/a.lapin.jpg" alt="Олександр Лапін" class="member-photo">
+                    <h3 class="member-name">Олександр Лапін</h3>
+                    <p class="member-position">Барітон</p>
+                    <p>Заслужений артист України.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/kovalVeronika.jpg" alt="Вероніка Коваль" class="member-photo">
+                    <h3 class="member-name">Вероніка Коваль</h3>
+                    <p class="member-position">Мецо-сопрано</p>
+                    <p>Народна артистка України, лауреат міжнародних конкурсів.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/panchenko.jpg" alt="Денис Панченко" class="member-photo">
+                    <h3 class="member-name">Денис Панченко</h3>
+                    <p class="member-position">Соліст балету</p>
+                    <p>Заслужений артист України.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/shatkovskaja.jpg" alt="Каріна Шатковська" class="member-photo">
+                    <h3 class="member-name">Каріна Шатковська</h3>
+                    <p class="member-position">Солістка балету</p>
+                    <p>Дипломант конкурсу балету «Кришталева туфелька».</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="events">
+            <h2>Ювілейні події</h2>
+            <div class="history-content">
+                <div class="history-image">
+                    <img src="images/eh_1742211730_67d80a926428c (1).jpg" alt="Ювілейні події">
+                </div>
+                <div class="history-text">
+                    <h3>Міжнародний фестиваль "Опера без кордонів"</h3>
+                    <p>15-30 вересня 2025 року театр проводить масштабний фестиваль за участю зірок світової опери та балету.</p>
+                    
+                    <h3>Виставка "100 років у мистецтві"</h3>
+                    <p>У фоє театру відкриється унікальна виставка, що розповість про історію театру через костюми, афіші та фотографії.</p>
+                    
+                    <h3>Презентація книги "Театр незламного Харкова"</h3>
+                    <p>Документальне видання, присвячене столітній історії театру, його артистам та найяскравішим виставам.</p>
+                    
+                    <h3>Благодійний гала-концерт</h3>
+                    <p>Усі збори від концерту будуть спрямовані на підтримку молодих талантів у сфері опери та балету.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <div class="contact-info">
+                    <p>Харківський національний академічний театр опери та балету імені М.В. Лисенка</p>
+                    <p>м. Харків, вул. Сумська, 25</p>
+                    <p>Каса: +380 (57) 700-40-40</p>
+                    <p>Адміністрація: +380 (57) 700-41-41</p>
+                    <p>Email: theatre@opera-ballet.kh.ua</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Години роботи</h3>
+                <p>Каса: щодня з 10:00 до 19:00</p>
+                <p>Технічні перерви: 14:00-15:00</p>
+                <p>Вистави: за розкладом</p>
+                <p>Екскурсії: за попереднім записом</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Підписатися на новини</h3>
+                <form>
+                    <input type="email" placeholder="Ваш email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;">
+                    <button type="submit" class="btn" style="width: 100%;">Підписатися</button>
+                </form>
+               
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Харківський національний академічний театр опери та балету імені М.В. Лисенка. Всі права захищені.</p>
+        </div>
+    </footer>
+</body>
+</html>
